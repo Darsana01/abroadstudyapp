@@ -152,16 +152,16 @@ class _AbroadLevelsState extends State<Abroad_levels> {
       appBar: AppBar(
         title: TextField(
           controller: _searchController,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             hintText: 'Search..',
             hintStyle: TextStyle(color: Colors.black),
             border: InputBorder.none,
           ),
-          style: TextStyle(color: Colors.black),
+          style: const TextStyle(color: Colors.black),
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.clear),
+            icon: const Icon(Icons.clear),
             onPressed: () {
               setState(() {
                 _searchController.clear();
@@ -191,7 +191,7 @@ class ExpansionTileCard extends StatelessWidget {
     return Card(
       child: ExpansionTile(
         title: Text(title),
-        children: [
+        children:const [
           ListTile(
             leading: Icon(Icons.calendar_month),
             title: Text('Intake'),
