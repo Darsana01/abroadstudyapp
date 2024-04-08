@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'home_abroad.dart';
 
 void main() {
@@ -52,7 +51,7 @@ class profile extends StatelessWidget {
                   child: TextField(
                     decoration: InputDecoration(
                       labelText: 'Email Id',
-                      labelStyle: TextStyle(color: Colors.black),
+                      labelStyle: const TextStyle(color: Colors.black),
                       enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide(color:Colors.red)),
                       focusedBorder: OutlineInputBorder(
@@ -69,7 +68,7 @@ class profile extends StatelessWidget {
                       labelStyle: TextStyle(color: Colors.black),
                       enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide(color:Colors.red)),
-                      focusedBorder: OutlineInputBorder(
+                      focusedBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color:Colors.red)),),
                     style:const TextStyle(color: Colors.black),
                   ),

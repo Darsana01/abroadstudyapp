@@ -9,6 +9,10 @@ import 'abroad_intakes.dart';
 import 'abroad_levels.dart';
 
 
+void main(){
+  runApp(MaterialApp(home: homeabroad(),debugShowCheckedModeBanner: false,));
+}
+
 class homeabroad extends StatefulWidget {
   homeabroad({super.key});
 
@@ -46,49 +50,6 @@ class _HomeabroadState extends State<homeabroad> {
                   enlargeCenterPage: true,
                   enlargeFactor: 1,
                 )),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-
-              child: InkWell(
-                onTap: () {},
-                child: SizedBox(
-                  height: 120,
-                  child: Card(
-                    elevation: 15,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                    child:  Center(
-                      child: ListTile(
-                          leading: const Icon(
-                            FontAwesomeIcons.pencil,
-                            size: 50,
-                            color: Colors.grey,
-                          ),
-                          trailing: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Padding(
-                                  padding:const EdgeInsets.only(top: 30),
-                                  child: ElevatedButton(onPressed: () {
-                                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Abroad_courses()));
-                                  },
-                                      child: const Text("Courses",style: TextStyle(color: Color.fromARGB(168, 255, 0, 0)),))
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.only(top: 30),
-                                child: Icon(
-                                  Icons.arrow_forward_ios,
-                                  size: 20,
-                                  color: Color.fromARGB(168, 255, 0, 0),
-                                ),
-                              )
-                            ],
-                          )),
-                    ),
-                  ),
-                ),
-              ),
-            ),
 
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -242,7 +203,7 @@ class _HomeabroadState extends State<homeabroad> {
                               Padding(
                                 padding: const EdgeInsets.only(top: 30),
                                 child: ElevatedButton(onPressed: (){
-                                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const Abroad_levels()));
+                                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Abroad_levels()));
                                 }, child: const Text("Levels",style: TextStyle(color: Color.fromARGB(168, 255, 0, 0)),)),
 
                               ),

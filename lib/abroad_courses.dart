@@ -82,12 +82,12 @@ class CountryCoursesTile extends StatelessWidget {
               'Country: $country',
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 10),
-            const Text(
+             SizedBox(height: 10),
+             Text(
               'programs:',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 5),
+             SizedBox(height: 5),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: programs
