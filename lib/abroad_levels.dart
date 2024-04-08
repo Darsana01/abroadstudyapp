@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -7,7 +8,12 @@ void main() {
   ));
 }
 
-class Abroad_levels extends StatelessWidget {
+class Abroad_levels extends StatefulWidget {
+  @override
+  _AbroadLevelsState createState() => _AbroadLevelsState();
+}
+
+class _AbroadLevelsState extends State<Abroad_levels> {
   final List<Map<String, String>> tileData = [
     {
       'title': 'MBA',
@@ -111,24 +117,64 @@ class Abroad_levels extends StatelessWidget {
     {
       'title':'HOTEL,TOURISM AND HOSPITALITY MANAGEMENT'
     },
-
   ];
+
+  List<Map<String, String>> filteredData = [];
+
+  TextEditingController _searchController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    filteredData = tileData;
+    _searchController.addListener(_onSearchChanged);
+  }
+
+  @override
+  void dispose() {
+    _searchController.removeListener(_onSearchChanged);
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  void _onSearchChanged() {
+    String searchTerm = _searchController.text.toLowerCase();
+    setState(() {
+      filteredData = tileData.where((tile) {
+        return tile['title']!.toLowerCase().contains(searchTerm);
+      }).toList();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: <Widget>[
+        title: TextField(
+          controller: _searchController,
+          decoration: InputDecoration(
+            hintText: 'Search..',
+            hintStyle: TextStyle(color: Colors.black),
+            border: InputBorder.none,
+          ),
+          style: TextStyle(color: Colors.black),
+        ),
+        actions: [
           IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.search),
+            icon: Icon(Icons.clear),
+            onPressed: () {
+              setState(() {
+                _searchController.clear();
+                filteredData = tileData;
+              });
+            },
           )
         ],
       ),
       body: ListView.builder(
-        itemCount: tileData.length,
+        itemCount: filteredData.length,
         itemBuilder: (context, index) {
-          return ExpansionTileCard(tileData[index]['title']!);
+          return ExpansionTileCard(filteredData[index]['title']!);
         },
       ),
     );
