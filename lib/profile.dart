@@ -1,6 +1,9 @@
+import 'package:abroad/home_abroad.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'home_abroad.dart';
+
+import 'bottom nav.dart';
+
 
 void main() {
   runApp(const MaterialApp(home: profile(), debugShowCheckedModeBanner: false));
@@ -101,7 +104,7 @@ class profile extends StatelessWidget {
                     ),
 
                     child:  ElevatedButton(onPressed: (){
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>homeabroad()));
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>bottom_nav()));
                     },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.transparent,
@@ -110,7 +113,7 @@ class profile extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10),
                           ),
                         ),
-                        child: Text("Done",style: TextStyle(color: Colors.white,fontSize: 20),))
+                        child: const Text("Done",style: TextStyle(color: Colors.white,fontSize: 20),))
                 ),
               ]),
         ));

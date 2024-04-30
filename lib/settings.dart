@@ -11,7 +11,6 @@ void main() {
 
 class Settings extends StatelessWidget {
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,7 +107,6 @@ class _SettingsFormState extends State<SettingsForm> {
             child: ElevatedButton(
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
-                  // Perform your action here
                   Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => bottom_nav()),
                   );

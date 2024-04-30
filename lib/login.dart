@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'bottom nav.dart';
 import 'home_abroad.dart';
 
@@ -14,6 +13,8 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+    final TextEditingController _passwordController = TextEditingController();
+    final TextEditingController _confirmPasswordController = TextEditingController();
 
     return Scaffold(
       body: Form(
@@ -41,6 +42,8 @@ class LoginPage extends StatelessWidget {
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your email';
+                  } else if (!value.contains('@')) {
+                    return 'Please enter a valid email';
                   }
                   return null;
                 },
@@ -48,8 +51,9 @@ class LoginPage extends StatelessWidget {
             ),
             const SizedBox(height: 15,),
             Padding(
-              padding:const EdgeInsets.symmetric(horizontal: 50),
+              padding: const EdgeInsets.symmetric(horizontal: 50),
               child: TextFormField(
+                controller: _passwordController,
                 decoration: InputDecoration(
                   labelText:'Password',
                   labelStyle:const TextStyle(color: Colors.black),
@@ -67,6 +71,35 @@ class LoginPage extends StatelessWidget {
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your password';
+                  }
+                  return null;
+                },
+              ),
+            ),
+            const SizedBox(height: 15,),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 50),
+              child: TextFormField(
+                controller: _confirmPasswordController,
+                decoration: InputDecoration(
+                  labelText:'Confirm Password',
+                  labelStyle:const TextStyle(color: Colors.black),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide:const BorderSide(color: Colors.red),
+                  ),
+                  focusedBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.red),
+                  ),
+                ),
+                style: const TextStyle(color: Colors.black),
+                obscureText: true,
+                obscuringCharacter: '*',
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please confirm your password';
+                  } else if (value != _passwordController.text) {
+                    return 'Passwords do not match';
                   }
                   return null;
                 },

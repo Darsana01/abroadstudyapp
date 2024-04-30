@@ -1,12 +1,12 @@
 import 'package:abroad/page1.dart';
 import 'package:abroad/page2.dart';
 import 'package:abroad/page3.dart';
+import 'package:abroad/registration.dart';
 import 'package:abroad/splash.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:onboarding_animation/onboarding_animation.dart';
-
 void main() {
 runApp(MaterialApp(
 debugShowCheckedModeBanner: false,
@@ -28,6 +28,7 @@ List<Widget> pages = [
 page1(),
 page2(),
 page3(),
+
 ];
 
 @override
@@ -43,7 +44,6 @@ child: Column(
 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 children: [
 Container(height: 60),
-// page view
 Expanded(
 child: PageView.builder(
 itemCount: pages.length,
@@ -58,7 +58,6 @@ return pages[index];
 },
 ),
 ),
-// dot indicators
 SmoothPageIndicator(
 controller: _controller,
 count: 3,
@@ -109,7 +108,7 @@ curve: Curves.easeInOut);
 skipCounter++;
 } else {
 Navigator.of(context).push(MaterialPageRoute(
-builder: (context) => splash_screen()));
+builder: (context) => RegistrationPage()));
 }
 },
 child: const Text(
@@ -130,7 +129,7 @@ curve: Curves.easeInOut);
 nextCounter++;
 } else {
 Navigator.of(context).push(MaterialPageRoute(
-builder: (context) => splash_screen ()));
+builder: (context) => RegistrationPage()));
 }
 },
 child: const Text(

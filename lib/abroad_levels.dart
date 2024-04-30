@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,113 +13,210 @@ class Abroad_levels extends StatefulWidget {
 }
 
 class _AbroadLevelsState extends State<Abroad_levels> {
-  final List<Map<String, String>> tileData = [
+  final List<Map<String, dynamic>> tileData = [
     {
       'title': 'MBA',
+      'Intake':'May/July/May/Sept',
+      'country': 'Canda/Uk/Australia/Germany/France/Ireland/Italy',
+
     },
     {
       'title': 'COMPUTER SCIENCE',
+      'Intake':'May,July,May,Sept',
+      'country': 'USA/UK',
+
     },
     {
       'title': 'BIOMEDICAL',
+      'Intake':'May,July,May,Sept',
+      'country': 'Australia',
+
     },
     {
-      'title': 'INTERNATIONAL BUSINESS MANAGEMENT ',
+      'title': 'INTERNATIONAL BUSINESS MANAGEMENT',
+      'Intake':'May,July,May,Sept',
+      'country': 'LATVIA',
+
     },
     {
-      'title':'INFORMATION SYSTEMS'
+      'title': 'INFORMATION SYSTEMS',
+      'Intake':'May,July,May,Sept',
+      'country': 'LITHUANIA',
+
     },
     {
-      'title':'BUSINESS ANALYTICS'
+      'title': 'BUSINESS ANALYTICS',
+      'Intake':'May,July,May,Sept',
+      'country': 'SLOVAKIA',
+
+    },
+
+    {
+      'title': 'DATA ANALYTICS',
+      'Intake':'May,July,May,Sept',
+      'country': '',
+
     },
     {
-      'title':'DATA ANALYTICS'
+      'title': 'SUPPLY CHAIN',
+      'Intake':'May,July,May,Sept',
+      'country': '',
+
     },
     {
-      'title':'SUPPLY CHAIN'
+      'title': 'HOTEL MANAGEMENT',
+      'Intake':'May,July,May,Sept',
+      'country': '',
+
+
     },
     {
-      'title':'HOTEL MANAGEMENT'
+      'title': 'BIO TECH',
+      'Intake':'May,July,May,Sept',
+      'country': '',
+
     },
     {
-      'title':'BIO TECH'
+      'title': 'PUBLIC HEALTH',
+      'Intake':'May,July,May,Sept',
+      'country': '',
+
     },
     {
-      'title':'PUBLIC HEALTH'
+      'title': 'MARKETING',
+      'Intake':'May,July,May,Sept',
+      'country': '',
+
     },
     {
-      'title':'MARKETING'
+      'title': 'DIGITAL MARKETING',
+      'Intake':'May,July,May,Sept',
+      'country': '',
+
     },
     {
-      'title':'DIGITAL MARKETING'
+      'title': 'ADVERTISING',
+      'Intake':'May,July,May,Sept',
+      'country': '',
+
     },
     {
-      'title':'ADVERTICING'
+      'title': 'ENGINEERING MANAGEMENT',
+      'Intake':'May,July,May,Sept',
+      'country': '',
+
     },
     {
-      'title':'ENGINEERING MANAGEMENT'
+      'title': 'PROJECT MANAGEMENT',
+      'Intake':'May,July,May,Sept',
+      'country': '',
+
     },
     {
-      'title':'PROJECT MANAGEMENT'
+      'title': 'CONSTRUCTION MANAGEMENT',
+      'Intake':'May,July,May,Sept',
+      'country': '',
+
     },
     {
-      'title':'CONSTRUCTION MANAGEMENT'
+      'title': 'MECHANICAL ENGINEERING',
+      'Intake':'May,July,May,Sept',
+      'country': '',
+
     },
     {
-      'title':'MECHANICAL ENGINEERING'
+      'title': 'CYBERSECURITY',
+      'Intake':'May,July,May,Sept',
+      'country': '',
+
+    },
+
+    {
+      'title': 'HEALTHCARE MANAGEMENT',
+      'Intake':'May,July,May,Sept',
+      'country': '',
+
     },
     {
-      'title':'CYBERSECURITY'
+      'title': 'ACCOUNTING',
+      'Intake':'May,July,May,Sept',
+      'country': '',
+
     },
     {
-      'title':'HEALTHCARE MANAGEMENT'
+      'title': 'FINANCE',
+      'Intake':'May,July,May,Sept',
+      'country': '',
+
     },
     {
-      'title':'ACCOUNTING'
+      'title': 'MANAGEMENT',
+      'Intake':'May,July,May,Sept',
+      'country': '',
+
     },
     {
-      'title':'FINANCE'
+      'title': 'INFORMATION TECHNOLOGY',
+      'Intake':'May,July,May,Sept',
+      'country': '',
+
     },
     {
-      'title':'MANAGEMENT'
+      'title': 'DATA SCIENCE AND ANALYTICS',
+      'Intake':'May,July,May,Sept',
+      'country': '',
+
     },
     {
-      'title':'INFORMATION TECHNOLOGY'
+      'title': 'MBA/BUSSINESS ADMINISTRATION',
+      'Intake':'May,July,May,Sept',
+      'country': '',
+
     },
     {
-      'title':'DATA SCIENCE AND ANALYTICS'
+      'title': 'BIO MED/TECH',
+      'Intake':'May,July,May,Sept',
+      'country': '',
+
     },
     {
-      'title':'MBA/BUSSINESS ADMINISTRATION'
+      'title': 'HEALTHCARE',
+      'Intake':'May,July,May,Sept',
+      'country': '',
+
     },
     {
-      'title':'BIO MED/TECH'
+      'title': 'MECHANICAL ENGINEERING',
+      'Intake':'May,July,May,Sept',
+      'country': '',
+
     },
     {
-      'title':'HEALTHCARE'
+      'title': 'MSC CLINICAL PHARMACY',
+      'Intake':'May,July,May,Sept',
+      'country': '',
+
     },
     {
-      'title':'MECHANICAL ENGINEERING'
+      'title': 'MOBILE DEVELOPMENT',
+      'Intake':'May,July,May,Sept',
+      'country': '',
+    },
+
+    {
+      'title': 'BUSSINESS MANAGEMENT',
+      'Intake':'May,July,May,Sept',
+      'country': '',
     },
     {
-      'title':'MSC CLINICAL PHARMACY'
-    },
-    {
-      'title':'MOBILE DEVELOPMENT'
-    },
-    {
-      'title':'DESIGN'
-    },
-    {
-      'title':'BUSSINESS MANAGEMENT'
-    },
-    {
-      'title':'HOTEL,TOURISM AND HOSPITALITY MANAGEMENT'
+      'title': 'HOTEL,TOURISM AND HOSPITALITY MANAGEMENT',
+      'Intake':'May,July,May,Sept',
+      'country': '',
+
     },
   ];
 
-  List<Map<String, String>> filteredData = [];
-
+  List<Map<String, dynamic>> filteredData = [];
   TextEditingController _searchController = TextEditingController();
 
   @override
@@ -174,7 +270,12 @@ class _AbroadLevelsState extends State<Abroad_levels> {
       body: ListView.builder(
         itemCount: filteredData.length,
         itemBuilder: (context, index) {
-          return ExpansionTileCard(filteredData[index]['title']!);
+          return ExpansionTileCard(
+            title: filteredData[index]['title']!,
+            Intake:filteredData[index]['Intake']!,
+            country: filteredData[index]['country']!,
+
+          );
         },
       ),
     );
@@ -183,26 +284,29 @@ class _AbroadLevelsState extends State<Abroad_levels> {
 
 class ExpansionTileCard extends StatelessWidget {
   final String title;
+  final String Intake;
+  final String country;
 
-  ExpansionTileCard(this.title);
+  ExpansionTileCard({
+    required this.title,
+    required this.Intake,
+    required this.country,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Card(
       child: ExpansionTile(
         title: Text(title),
-        children:const [
+        children: [
           ListTile(
             leading: Icon(Icons.calendar_month),
-            title: Text('Intake'),
+            title: Text(Intake),
           ),
-          ListTile(
-            leading: Icon(Icons.attach_money_sharp),
-            title: Text('€'),
-          ),
+
           ListTile(
             leading: Icon(Icons.location_on),
-            title: Text('country'),
+            title: Text(country),
           ),
           ListTile(
             leading: Icon(Icons.school),

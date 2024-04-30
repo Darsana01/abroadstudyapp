@@ -1,10 +1,10 @@
-import 'package:abroad/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'home_abroad.dart';
+import 'login.dart';
 
 void main() {
-  runApp( MaterialApp(home: RegistrationPage(), debugShowCheckedModeBanner: false));
+  runApp(MaterialApp(home: RegistrationPage(), debugShowCheckedModeBanner: false));
 }
 
 class RegistrationPage extends StatelessWidget {
@@ -12,7 +12,9 @@ class RegistrationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+    final GlobalKey<FormState>  _formKey = GlobalKey<FormState>();
+    final TextEditingController _passwordController = TextEditingController();
+    final TextEditingController _confirmPasswordController = TextEditingController();
 
     return Scaffold(
       body: Form(
@@ -45,12 +47,12 @@ class RegistrationPage extends StatelessWidget {
                 },
               ),
             ),
-             const SizedBox(height: 15,),
+            const SizedBox(height: 15,),
             Padding(
               padding:const EdgeInsets.symmetric(horizontal: 50),
               child: TextFormField(
                 decoration: InputDecoration(
-                  labelText: 'Email id / phone number',
+                  labelText: 'Phone number',
                   labelStyle:const TextStyle(color: Colors.black),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -72,20 +74,21 @@ class RegistrationPage extends StatelessWidget {
 
             const SizedBox(height: 15,),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 50),
+              padding:const EdgeInsets.symmetric(horizontal: 50),
               child: TextFormField(
+                controller: _passwordController,
                 decoration: InputDecoration(
                   labelText:'Password',
-                  labelStyle: const TextStyle(color: Colors.black),
+                  labelStyle:const TextStyle(color: Colors.black),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(color: Colors.red),
+                    borderSide:const BorderSide(color: Colors.red),
                   ),
-                  focusedBorder: const OutlineInputBorder(
+                  focusedBorder:const OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.red),
                   ),
                 ),
-                style: const TextStyle(color: Colors.black),
+                style:const TextStyle(color: Colors.black),
                 obscureText: true,
                 obscuringCharacter: '*',
                 validator: (value) {
@@ -98,37 +101,40 @@ class RegistrationPage extends StatelessWidget {
             ),
             const SizedBox(height: 15,),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 50),
+              padding:const EdgeInsets.symmetric(horizontal: 50),
               child: TextFormField(
+                controller: _confirmPasswordController,
                 decoration: InputDecoration(
                   labelText:'Confirm Password',
-                  labelStyle: const TextStyle(color: Colors.black),
+                  labelStyle:const TextStyle(color: Colors.black),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: const BorderSide(color: Colors.red),
                   ),
-                  focusedBorder: const OutlineInputBorder(
+                  focusedBorder:const OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.red),
                   ),
                 ),
-                style: const TextStyle(color: Colors.black),
+                style:const TextStyle(color: Colors.black),
                 obscureText: true,
                 obscuringCharacter: '*',
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please confirm your password';
+                  } else if (value != _passwordController.text) {
+                    return 'Passwords do not match';
                   }
                   return null;
                 },
               ),
             ),
-            const SizedBox(height: 40,),
+             const SizedBox(height: 40,),
             Container(
               width: 400,
               height: 50,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                gradient: const LinearGradient(
+                gradient:const LinearGradient(
                   colors: [Colors.red, Colors.black],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
@@ -137,7 +143,7 @@ class RegistrationPage extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>const LoginPage()));
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>LoginPage()));
                   }
                 },
                 style: ElevatedButton.styleFrom(
@@ -147,7 +153,7 @@ class RegistrationPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-                child:const Text("Register", style: TextStyle(color: Colors.white, fontSize: 20)),
+                child:const Text("Register",style: TextStyle(color:Colors.white,fontSize: 20)),
               ),
             ),
           ],
